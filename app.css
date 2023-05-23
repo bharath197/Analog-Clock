@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+:root {
+    --clock-dimension: 16rem;
+    --clock-center: 10px;
+    --clock-hand-width: 6px;
+    --hour-hand-bg: #212529;
+    --min-hand-color: #343a40;
+    --second-hand-color: #495057;
+}
+
+.clock {
+    height: var(--clock-dimension);
+    width: var(--clock-dimension);
+    border: 3px solid black;
+    border-radius: 100%;
+    position: relative;
+}
+
+.inner-clock-face {
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.inner-clock-face::before {
+    content: '';
+    height: var(--clock-center);
+    width: var(--clock-center);
+    background-color: black;
+    border-radius: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: calc(50% - var(--clock-center)/2);
+    left: calc(50% - var(--clock-center)/2);
+}
+
+.hand {
+    position: absolute;
+    height: var(--clock-hand-width);
+    top: calc(50% - var(--clock-hand-width)/2); 
+    /* update the height value for each hands individually */
+    right: 50%;
+}
+
+.hour.hand {
+    width: 30%;
+    background-color: var(--hour-hand-bg);
+    z-index: 4;
+    --clock-hand-width: 6px;
+}
+
+.min.hand {
+    width: 40%;
+    z-index: 3;
+    background-color: var(--min-hand-color);
+    --clock-hand-width: 4px;
+}
+
+.second.hand {
+    width: 50%;
+    z-index: 2;
+    background-color: var(--second-hand-color);
+    --clock-hand-width: 3px;
+}
