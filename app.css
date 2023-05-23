@@ -55,25 +55,28 @@ body {
     top: calc(50% - var(--clock-hand-width)/2); 
     /* update the height value for each hands individually */
     right: 50%;
+    transform-origin: 100%;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+
 }
 
 .hour.hand {
     width: 30%;
     background-color: var(--hour-hand-bg);
     z-index: 4;
-    --clock-hand-width: 6px;
+    --clock-hand-width: 3px;
 }
 
 .min.hand {
     width: 40%;
     z-index: 3;
     background-color: var(--min-hand-color);
-    --clock-hand-width: 4px;
+    --clock-hand-width: 2px;
 }
 
 .second.hand {
     width: 50%;
     z-index: 2;
     background-color: var(--second-hand-color);
-    --clock-hand-width: 3px;
+    --clock-hand-width: 1px;
 }
